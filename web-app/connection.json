@@ -39,6 +39,7 @@
         }
     },
     "peers": {
+        
         "peer0.org1.example.com": {
             "url": "grpc://localhost:17051"
         }

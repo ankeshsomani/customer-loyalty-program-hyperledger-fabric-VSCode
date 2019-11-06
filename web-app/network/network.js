@@ -113,12 +113,14 @@ module.exports = {
       console.log('\nSubmit Create Member transaction.');
       const createMemberResponse = await contract.submitTransaction('CreateMember', JSON.stringify(member));
       console.log('createMemberResponse: ');
+      console.log('00000000000000000000000000000000000');
       console.log(JSON.parse(createMemberResponse.toString()));
-
+      console.log('11111111111111111111111111111111');
       console.log('\nGet member state ');
       const memberResponse = await contract.evaluateTransaction('GetState', accountNumber);
       console.log('memberResponse.parse_response: ')
-      console.log(JSON.parse(JSON.parse(memberResponse.toString())));
+      console.log(JSON.parse(memberResponse.toString()));
+	    console.log('22222222222222222222222');
 
       // Disconnect from the gateway.
       await gateway2.disconnect();
@@ -217,6 +219,7 @@ module.exports = {
 
       // Submit the specified transaction.
       console.log('\nSubmit Create Partner transaction.');
+	  console.log('Before submitting partner transaction:----'+JSON.stringify(partner));
       const createPartnerResponse = await contract.submitTransaction('CreatePartner', JSON.stringify(partner));
       console.log('createPartnerResponse: ');
       console.log(JSON.parse(createPartnerResponse.toString()));
@@ -224,7 +227,7 @@ module.exports = {
       console.log('\nGet partner state ');
       const partnerResponse = await contract.evaluateTransaction('GetState', partnerId);
       console.log('partnerResponse.parse_response: ')
-      console.log(JSON.parse(JSON.parse(partnerResponse.toString())));
+      console.log(JSON.parse(partnerResponse.toString()));
 
       // Disconnect from the gateway.
       await gateway2.disconnect();
@@ -368,7 +371,7 @@ module.exports = {
 
       console.log('\nGet member state ');
       let member = await contract.submitTransaction('GetState', accountNumber);
-      member = JSON.parse(JSON.parse(member.toString()));
+      member = JSON.parse(member.toString());
       console.log(member);
 
       // Disconnect from the gateway.
@@ -411,7 +414,7 @@ module.exports = {
 
       console.log('\nGet partner state ');
       let partner = await contract.submitTransaction('GetState', partnerId);
-      partner = JSON.parse(JSON.parse(partner.toString()));
+      partner = JSON.parse(partner.toString());
       console.log(partner);
 
       // Disconnect from the gateway.
@@ -453,7 +456,7 @@ module.exports = {
 
       console.log('\nGet all partners state ');
       let allPartners = await contract.evaluateTransaction('GetState', 'all-partners');
-      allPartners = JSON.parse(JSON.parse(allPartners.toString()));
+      allPartners = JSON.parse(allPartners.toString());
       console.log(allPartners);
 
       // Disconnect from the gateway.
@@ -494,7 +497,7 @@ module.exports = {
 
       console.log(`\nGet earn points transactions state for ${userType} ${userId}`);
       let earnPointsTransactions = await contract.evaluateTransaction('EarnPointsTransactionsInfo', userType, userId);
-      earnPointsTransactions = JSON.parse(JSON.parse(earnPointsTransactions.toString()));
+      earnPointsTransactions = JSON.parse(earnPointsTransactions.toString());
       console.log(earnPointsTransactions);
 
       // Disconnect from the gateway.
@@ -536,7 +539,7 @@ module.exports = {
 
       console.log(`\nGet use points transactions state for ${userType} ${userId}`);
       let usePointsTransactions = await contract.evaluateTransaction('UsePointsTransactionsInfo', userType, userId);
-      usePointsTransactions = JSON.parse(JSON.parse(usePointsTransactions.toString()));
+      usePointsTransactions = JSON.parse(usePointsTransactions.toString());
       console.log(usePointsTransactions);
 
       // Disconnect from the gateway.
